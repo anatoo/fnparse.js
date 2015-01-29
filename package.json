@@ -1,0 +1,28 @@
+{
+  "name": "fnparse.js",
+  "version": "0.0.0",
+  "description": "Extremely simple parser combinator library for JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anatoo/fnparse.git"
+  },
+  "keywords": [
+    "parse",
+    "function",
+    "parser-combinator"
+  ],
+  "author": "Mitsunori KUBOTA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anatoo/fnparse/issues"
+  },
+  "homepage": "https://github.com/anatoo/fnparse",
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.1.0"
+  }
+}
