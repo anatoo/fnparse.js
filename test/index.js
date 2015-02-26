@@ -75,3 +75,20 @@ describe('lazy()', function() {
   });
 });
 
+describe('char()', function() {
+  it('should succeed parsing', function() {
+    var parse = $.char('hoge');
+
+    expect(parse('h', 0)).is.eql([true, 'h', 1]);
+    expect(parse('o', 0)).is.eql([true, 'o', 1]);
+    expect(parse('g', 0)).is.eql([true, 'g', 1]);
+    expect(parse('e', 0)).is.eql([true, 'e', 1]);
+
+    parse = $.char('hoge', true);
+
+    expect(parse('h', 0)).is.eql([false, null, 0]);
+    expect(parse('o', 0)).is.eql([false, null, 0]);
+    expect(parse('a', 0)).is.eql([true, 'a', 1]);
+  });
+});
+
