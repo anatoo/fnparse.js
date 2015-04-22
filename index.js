@@ -112,6 +112,32 @@ function regex(regexp) {
 }
 
 /**
+ * @param {String} str
+ * @param {Boolean} [inverse]
+ * @return {Function} 
+ */
+function char(str, inverse) {
+  if (arguments.length < 2) {
+    inverse = false;
+  }
+
+  var dict = {};
+  for (var i = 0; i < str.length; i++) {
+    dict[str[i]] = str[i];
+  }
+
+  return function(target, position) {
+    var char = target.substr(position, 1);
+    var isMatch = !!dict[char];
+    if (inverse ? !isMatch : isMatch) {
+      return [true, char, position + 1];
+    } else {
+      return [false, null, position];
+    }
+  };
+}
+
+/**
  * @param {Function} fn
  * @return {Function}
  */
@@ -180,6 +206,7 @@ module.exports = {
   seq: seq,
   regex: regex,
   lazy: lazy,
+  char: char,
   option: option,
   map: map,
   filter: filter
