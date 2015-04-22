@@ -75,3 +75,13 @@ describe('lazy()', function() {
   });
 });
 
+describe('map()', function() {
+  it('should succeed parsing', function() {
+    var parse = $.map($.token('hoge'), function(result) {
+      return result + result;
+    });
+
+    expect(parse('hoge', 0)).is.eql([true, 'hogehoge', 4]);
+  });
+});
+
